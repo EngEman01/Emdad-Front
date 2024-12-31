@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Management</title>
+   <!-- animate.css-->
+   <link href="assets/vendor/animate.css-master/animate.min.css" rel="stylesheet">
+   <!-- Load Screen -->
+   <link href="assets/vendor/loadscreen/css/spinkit.css" rel="stylesheet">
+   <!-- GOOGLE FONT -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+       rel="stylesheet">
+   <!-- Font Awesome 5 -->
+   <link href="assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
+
+   <!-- Font Awesome CDN -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <!-- Bootstrap CSS -->
+   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="assets/vendor/bootstrap/css/bootstrap-4-navbar.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+   <!-- portfolio filter gallery -->
+   <link href="assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css" rel="stylesheet">
+   <!-- FANCY BOX -->
+   <link href="assets/vendor/fancybox-master/jquery.fancybox.min.css" rel="stylesheet">
+   <!-- RANGE SLIDER -->
+   <link href="assets/vendor/range-slider/range-slider.css" rel="stylesheet">
+   <!-- OWL CAROUSEL  -->
+   <link href="assets/vendor/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+   <link href="assets/vendor/owlcarousel/owl.theme.default.min.css" rel="stylesheet">
+   <!-- emdad CUSTOM CSS FILE -->
+   <link href="assets/custom/css/custom.css" rel="stylesheet">
+   <!-- emdad GOLBAL STYLE CSS FILE -->
+   <link href="assets/custom/css/emdad-global-styles.css" rel="stylesheet">
+   <!-- emdad CUSTOM CSS RESPONSIVE FILE -->
+   <link href="assets/custom/css/custom-responsive.css" rel="stylesheet">
+   <!-- emdad COLOR CSS FILE -->
+   <link href="assets/custom/css/emdad-colors.css" rel="stylesheet">
+   <!-- emdad SIGNIN CSS RESPONSIVE FILE -->
+   <link href="assets/custom/css/custom-responsive.css" rel="stylesheet">
+   <!-- emdad ABOUT CSS RESPONSIVE FILE -->
+   <link href="assets/custom/css/emdad-about.css" rel="stylesheet">
+   <!-- emdad Menu CSS RESPONSIVE FILE -->
+   <link href="assets/custom/css/emdad-mega-menu.css" rel="stylesheet">
+   <!-- emdad FOOTER CSS RESPONSIVE FILE -->
+   <link href="assets/custom/css/emdad-footer.css" rel="stylesheet">
+   <!-- NEW CHANGE THAT I WANT -->
+   <link href="assets/custom/css/new-style.css" rel="stylesheet">
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS (optional) -->
+
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center">Product Management</h2>
+    <!-- Add Product Button -->
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addModal">Add New Product</button>
+
+    <!-- Categories Table -->
+    <table class="table table-striped" id="ProductTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Rate</th>
+          <th>Category</th>
+          <th>Subcategory</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody id="ProductTableBody">
+        <tr>
+          <td colspan="10" class="text-center">No products yet</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal for Add/Edit Product -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Add New Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="ProductForm" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="ProductName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="ProductName" required>
+            </div>
+            <div class="mb-3">
+              <label for="ProductDescription" class="form-label">Product Description</label>
+              <textarea class="form-control" id="ProductDescription" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="ProductPrice" class="form-label">Product Price</label>
+              <input type="number" class="form-control" id="ProductPrice" required>
+            </div>
+            <div class="mb-3">
+              <label for="ProductStock" class="form-label">Stock</label>
+              <input type="number" class="form-control" id="ProductStock" required>
+            </div>
+            <div class="mb-3">
+                <label for="ProductRate" class="form-label">Product Rate (0 to 5)</label>
+                <input type="number" class="form-control" id="ProductRate" step="0.1" min="0" max="5" required>
+              </div>
+            <div class="mb-3">
+              <label for="ProductCategory" class="form-label">Category</label>
+              <select class="form-select" id="ProductCategory" required>
+                <option value="" disabled selected>Select a Category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Clothing">Clothing</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="ProductSubCategory" class="form-label">Subcategory</label>
+              <select class="form-select" id="ProductSubCategory" required>
+                <option value="" disabled selected>Select a Subcategory</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Sofa">Sofa</option>
+                <option value="Shirt">Shirt</option>
+              </select>
+            </div>
+            <div class="mb-3">
+                <label for="ProductImages" class="form-label">Product Images</label>
+                <input type="file" class="form-control" id="ProductImages" accept="image/*" multiple>
+              </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS & Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="assets/custom/js/productManagment.js"></script>
+</body>
+
+</html>

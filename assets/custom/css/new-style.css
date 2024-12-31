@@ -4,9 +4,9 @@
     color: #fff;
 }
 
-/* body{
-    direction: rtl;
-} */
+.allPage{
+    min-height: 80vh;
+}
 
 .rtlSection{
     text-align: right;
@@ -203,4 +203,18 @@
     .join-us{
         flex-direction: column;
     }
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.Product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }

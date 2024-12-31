@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Management</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome CDN for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS (optional) -->
+  <style>
+    .modal-body {
+      padding: 20px;
+    }
+    .form-control {
+      width: 100%;
+    }
+    .category-image {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center">Category Management</h2>
+    <!-- Add Category Button -->
+    <button class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addModal" onclick="clearForm()">Add New Category</button>
+    
+    <!-- Categories Table -->
+    <table class="table table-striped" id="categoryTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="categoryTableBody">
+        <td>${index + 1}</td>
+        <td>${category.name}</td>
+        <td>${category.description}</td>
+        <td><img class="category-image" src="${category.image}" alt="${category.name}"></td>
+        <td>
+          <button class="btn btn-info btn-sm"><i class="fas fa-eye"></i></button>
+          <button class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
+          <button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+        </td>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal for Add/Edit Category -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Add New Category</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="categoryForm" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label for="categoryName" class="form-label">Category Name</label>
+              <input type="text" class="form-control" id="categoryName" required>
+            </div>
+            <div class="mb-3">
+              <label for="categoryDescription" class="form-label">Category Description</label>
+              <textarea class="form-control" id="categoryDescription" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="parentCategory" class="form-label">Parent Category</label>
+              <select class="form-select" id="parentCategory" required>
+                <option value="" disabled selected>Select a Parent Category</option>
+                <option value="category1">Category 1</option>
+                <option value="category2">Category 2</option>
+                <option value="category3">Category 3</option>
+                <option value="category4">Category 4</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="categoryImage" class="form-label">Category Image</label>
+              <input type="file" class="form-control" id="categoryImage" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for View Category Details -->
+  <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="viewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewModalLabel">Category Details</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5 id="viewCategoryName"></h5>
+          <p id="viewCategoryDescription"></p>
+          <img id="viewCategoryImage" class="category-image" src="" alt="Category Image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS & Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <!-- JavaScript for functionality -->
+  <script>
+    let categories = [];
+    let currentEditIndex = null;
+
+    // Function to update the table
+    function updateTable() {
+      const tableBody = document.getElementById('categoryTableBody');
+      tableBody.innerHTML = '';
+      
+      if (categories.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="5" class="text-center">No categories yet</td></tr>';
+      } else {
+        categories.forEach((category, index) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${category.name}</td>
+            <td>${category.description}</td>
+            <td><img class="category-image" src="${category.image}" alt="${category.name}"></td>
+            <td>
+              <button class="btn btn-info btn-sm" onclick="viewCategory(${index})"><i class="fas fa-eye"></i></button>
+              <button class="btn btn-warning btn-sm" onclick="editCategory(${index})"><i class="fas fa-edit"></i></button>
+              <button class="btn btn-danger btn-sm" onclick="deleteCategory(${index})"><i class="fas fa-trash"></i></button>
+            </td>
+          `;
+          tableBody.appendChild(row);
+        });
+      }
+    }
+
+    // Function to add a category
+    function addCategory(name, description, image) {
+      const newCategory = {
+        id: Date.now(),
+        name,
+        description,
+        image
+      };
+      categories.push(newCategory);
+      updateTable();
+    }
+
+    // Function to delete a category
+    function deleteCategory(index) {
+      categories.splice(index, 1);
+      updateTable();
+    }
+
+    // Function to view a category's details
+    function viewCategory(index) {
+      const category = categories[index];
+      document.getElementById('viewCategoryName').innerText = category.name;
+      document.getElementById('viewCategoryDescription').innerText = category.description;
+      document.getElementById('viewCategoryImage').src = category.image;
+
+      const myModal = new bootstrap.Modal(document.getElementById('viewModal'));
+      myModal.show();
+    }
+
+    // Function to edit a category
+    function editCategory(index) {
+      currentEditIndex = index;
+      const category = categories[index];
+      document.getElementById('categoryName').value = category.name;
+      document.getElementById('categoryDescription').value = category.description;
+      document.getElementById('parentCategory').value = category.parentCategory || '';
+      document.getElementById('categoryImage').value = ''; // No way to set image directly, needs to re-upload
+
+      const myModal = new bootstrap.Modal(document.getElementById('addModal'));
+      myModal.show();
+    }
+
+    // Handler for the Add/Edit Category form submit
+    function addCategoryHandler(event) {
+      event.preventDefault();
+      const name = document.getElementById('categoryName').value;
+      const description = document.getElementById('categoryDescription').value;
+      const imageInput = document.getElementById('categoryImage');
+      const imageFile = imageInput.files[0];
+      let imageUrl = '';
+
+      if (imageFile) {
+        const reader = new FileReader();
+        reader.onloadend = function() {
+          imageUrl = reader.result;
+          if (currentEditIndex !== null) {
+            categories[currentEditIndex] = { ...categories[currentEditIndex], name, description, image: imageUrl };
+          } else {
+            addCategory(name, description, imageUrl);
+          }
+          updateTable();
+          clearForm();
+        };
+        reader.readAsDataURL(imageFile);
+      } else {
+        if (currentEditIndex !== null) {
+          categories[currentEditIndex] = { ...categories[currentEditIndex], name, description };
+        } else {
+          addCategory(name, description, imageUrl);
+        }
+        updateTable();
+        clearForm();
+      }
+
+      var myModal = bootstrap.Modal.getInstance(document.getElementById('addModal'));
+      myModal.hide();
+    }
+
+    // Function to clear the form
+    function clearForm() {
+      currentEditIndex = null;
+      document.getElementById('categoryForm').reset();
+    }
+
+    // Initialize the form submission event
+    document.getElementById('categoryForm').onsubmit = addCategoryHandler;
+
+    // Initial call to display the categories
+    updateTable();
+  </script>
+</body>
+</html>

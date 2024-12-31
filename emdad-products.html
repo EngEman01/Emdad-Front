@@ -54,121 +54,186 @@
 </head>
 
 <body>
-    <div class="container bg-products mt-5 wow zoomInRight">
-        <div class="row">
-            <!-- Filter Section -->
-            <div class="col-md-3">
-                <div class="filter-container">
-                    <!-- Search Bar -->
-                    <div class="mb-3">
-                        <input type="text" id="searchInput" class="form-control" placeholder="Search for a product..."
-                            onkeyup="filterProducts()">
-                    </div>
 
-                    <!-- Filter by Category -->
-                    <div class="mb-3">
-                        <select class="form-select" id="categoryFilter" onchange="filterProducts()">
-                            <option value="">Filter by Category</option>
-                            <option value="electronics">Electronics</option>
-                            <option value="clothing">Clothing</option>
-                            <option value="furniture">Furniture</option>
-                        </select>
-                    </div>
+    <div class="allPage">
+        <div class="emdad-transparent">
+            <nav class="navbar navbar-expand-md navbar-light  btco-hover-menu">
+                <img class="logoImage pulse" src="assets/custom/IMAGE/emdadLogo.png" alt="Logo">
 
-                    <!-- Price Range Slider -->
-                    <div class="mb-3">
-                        <label for="priceRange">Filter by Price: $<span id="priceRangeLabel">0</span> - $<span
-                                id="priceRangeMax">1000</span></label>
-                        <input type="range" id="priceRange" class="form-range" min="0" max="1000" step="10" value="1000"
-                            onchange="filterProducts()">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#emdadNavDropdown"
+                    aria-controls="emdadNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="emdadNavDropdown">
+                    <ul class="navbar-nav mx-auto emdad-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./emdadHome.html" style="font-size: 22px;">الصفحة الرئيسية</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="sub-nav3" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" style="font-size: 22px;">اعرف عنا</a>
+                            <ul class="dropdown-menu" aria-labelledby="sub-nav3">
+                                <li><a class="dropdown-item" href="./emdadDes.html">ما هي شركة امداد</a></li>
+                                <li><a class="dropdown-item" href="./emdadGoals.html">ما تقدمه الشركة و الهدف منها</a>
+                                </li>
+                                <li><a class="dropdown-item" href="./emdadCommercial.html">السجل التجاري</a></li>
+                                <li><a class="dropdown-item" href="./emdadManagement.html">مجلس الادارة</a></li>
+                                <li><a class="dropdown-item" href="#">الشركاء</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="sub-nav4" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" style="font-size: 22px;">المنتجات</a>
+                            <ul class="dropdown-menu" aria-labelledby="sub-nav4">
+                                <li><a class="dropdown-item" href="./emdadCategory.html">التصنيفات</a></li>
+                                <li><a class="dropdown-item" href="./emdad-products.html">منتجاتنا</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="./emdadContactus.html" style="font-size: 22px;">تواصل معنا</a>
+                        </li>
+
+                        <li class="emdad-languages">
+                            <i class="fas fa-globe"></i>
+                            <form>
+                                <select class="changeLanguage">
+                                    <option class="emdad-option-language" value="كندا">english</option>
+                                    <option class="emdad-option-language" value="ألمانيا">العربية</option>
+                                    <option class="emdad-option-language" value="فرنسا">deutsch</option>
+                                    <option class="emdad-option-language" value="إيطاليا">pyccknn</option>
+                                    <option class="emdad-option-language" value="أستراليا">franch</option>
+                                </select>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="container bg-products mt-5 wow zoomInRight">
+            <div class="row">
+                <!-- Filter Section -->
+                <div class="col-md-3">
+                    <div class="filter-container">
+                        <!-- Search Bar -->
+                        <div class="mb-3">
+                            <input type="text" id="searchInput" class="form-control"
+                                placeholder="Search for a product..." onkeyup="filterProducts()">
+                        </div>
+
+                        <!-- Filter by Category -->
+                        <div class="mb-3">
+                            <select class="form-select" id="categoryFilter" onchange="filterProducts()">
+                                <option value="">Filter by Category</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="furniture">Furniture</option>
+                            </select>
+                        </div>
+
+                        <!-- Price Range Slider -->
+                        <div class="mb-3">
+                            <label for="priceRange">Filter by Price: $<span id="priceRangeLabel">0</span> - $<span
+                                    id="priceRangeMax">1000</span></label>
+                            <input type="range" id="priceRange" class="form-range" min="0" max="1000" step="10"
+                                value="1000" onchange="filterProducts()">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Products Section -->
-            <div class="col-md-9">
-                <div class="row" id="productList">
-                    <!-- Product 1 -->
-                    <div class="col-md-4 product-card" data-category="electronics" data-price="99.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 1">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 1</h5>
-                                <p class="card-text product-description">This is a great product for tech enthusiasts.
-                                </p>
-                                <p class="card-text pricing"><strong>$99.99</strong></p>
+                <!-- Products Section -->
+                <div class="col-md-9">
+                    <div class="row" id="productList">
+                        <!-- Product 1 -->
+                        <div class="col-md-4 product-card" data-category="electronics" data-price="99.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 1">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 1</h5>
+                                    <p class="card-text product-description">This is a great product for tech
+                                        enthusiasts.
+                                    </p>
+                                    <p class="card-text pricing"><strong>$99.99</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Product 2 -->
-                    <div class="col-md-4 product-card" data-category="clothing" data-price="49.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 2</h5>
-                                <p class="card-text product-description">Comfortable and stylish clothing.</p>
-                                <p class="card-text pricing"><strong>$49.99</strong></p>
+                        <!-- Product 2 -->
+                        <div class="col-md-4 product-card" data-category="clothing" data-price="49.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 2</h5>
+                                    <p class="card-text product-description">Comfortable and stylish clothing.</p>
+                                    <p class="card-text pricing"><strong>$49.99</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Product 3 -->
-                    <div class="col-md-4 product-card" data-category="furniture" data-price="199.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 3</h5>
-                                <p class="card-text product-description">Stylish and modern furniture for your home.</p>
-                                <p class="card-text pricing"><strong>$199.99</strong></p>
+                        <!-- Product 3 -->
+                        <div class="col-md-4 product-card" data-category="furniture" data-price="199.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 3</h5>
+                                    <p class="card-text product-description">Stylish and modern furniture for your home.
+                                    </p>
+                                    <p class="card-text pricing"><strong>$199.99</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Product 4 -->
-                    <div class="col-md-4 product-card" data-category="electronics" data-price="799.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 4</h5>
-                                <p class="card-text product-description">Latest smartphone with amazing features.</p>
-                                <p class="card-text pricing"><strong>$799.99</strong></p>
+                        <!-- Product 4 -->
+                        <div class="col-md-4 product-card" data-category="electronics" data-price="799.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 4</h5>
+                                    <p class="card-text product-description">Latest smartphone with amazing features.
+                                    </p>
+                                    <p class="card-text pricing"><strong>$799.99</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Product 5 -->
-                    <div class="col-md-4 product-card" data-category="clothing" data-price="39.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 5">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 5</h5>
-                                <p class="card-text product-description">Trendy and fashionable clothing item.</p>
-                                <p class="card-text pricing"><strong>$39.99</strong></p>
+                        <!-- Product 5 -->
+                        <div class="col-md-4 product-card" data-category="clothing" data-price="39.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 5">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 5</h5>
+                                    <p class="card-text product-description">Trendy and fashionable clothing item.</p>
+                                    <p class="card-text pricing"><strong>$39.99</strong></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Product 6 -->
-                    <div class="col-md-4 product-card" data-category="furniture" data-price="599.99">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 6">
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title product-name">Product 6</h5>
-                                <p class="card-text product-description">Comfortable sofa for your living room.</p>
-                                <p class="card-text pricing"><strong>$599.99</strong></p>
+                        <!-- Product 6 -->
+                        <div class="col-md-4 product-card" data-category="furniture" data-price="599.99">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 6">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title product-name">Product 6</h5>
+                                    <p class="card-text product-description">Comfortable sofa for your living room.</p>
+                                    <p class="card-text pricing"><strong>$599.99</strong></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -176,6 +241,71 @@
             </div>
         </div>
     </div>
+
+
+    <div class="emdad-footer-image emdad-after-overlay white-color py-4 py-lg-5 rtlSection ">
+        <div class="container">
+
+            <div class="join-us">
+                <div class="our-company">
+
+                    <img src="/assets/custom/IMAGE/emdadLogo.png" alt="">
+                    <p class="font-15 emdad-third-text-color">
+                        رؤية شركة إمداد للصناعات والمعدات الميكانيكية الثقيلة والتوكيلات التجارية للخطوات المنهجية
+                        التى
+                        تتناسب مع طبيعة منتجات الهيئة العربية للتصنيع والسوق المستهدف
+
+                        <br><br>
+                        مقترح مخطط وجهاذية تنفيذه بخطة تسويقية مطورة شاملة تسهم في تعزيز نجاح المنتجات في السوق
+                        المحلى والدولى
+                    </p>
+
+                </div>
+
+                <div class="address-company">
+                    <h2 class="font-20 semi-font emdad-second-border-color border-bottom pb-3 text-white">تواصل معنا
+                    </h2>
+                    <div class="">
+                        <h4 class="font-16 semi-font text-white"><span
+                                class=" emdad-second-text-color pr-2 font-20 mt-1 d-inline-block "></span>
+                            العنوان</h4>
+                        <p class="font-14 emdad-fifth-text-color mt-2 ml-4">6 – ش بن الوليد أمام بوابة (1) نادى
+                            الصيد
+                            بجوار سفارة سنغافورة – الدقى – الجيزة
+                        </p>
+                    </div>
+                    <div class="">
+                        <h4 class="font-16 semi-font text-white"><span
+                                class="emdad-iconphone emdad-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>
+                            اتصل بنا </h4>
+                        <p class="font-14 emdad-fifth-text-color mt-2 ml-4">+201157536373</p>
+                    </div>
+                    <div class="">
+                        <h4 class="font-16 semi-font text-white"><span
+                                class="emdad-iconemail emdad-second-text-color pr-2 font-20 mt-1 d-inline-block"></span>
+                            الايميل </h4>
+                        <p class="font-14 emdad-fifth-text-color mt-2 ml-4">info@eltamawiya-emdad.com
+                        </p>
+                    </div>
+                </div>
+                <div class="quick-links">
+                    <h2 class="font-20 semi-font emdad-second-border-color border-bottom pb-3 mb-3 text-white"> الوصول
+                        السريع
+                    </h2>
+                    <ul class="nav emdad-footer-links">
+                        <li><a href="./emdadDes.html" class="text-white">اعرف عنا</a></li>
+                        <li><a href="#" class="text-white">منتجاتنا</a></li>
+                        <li><a href="#" class="text-white">تواصل معنا</a></li>
+                        <li><a href="./emdadManagement.html" class="text-white">مجلس الادارة</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
 
 
     <script src="assets/custom/js/controll-product.js"></script>
