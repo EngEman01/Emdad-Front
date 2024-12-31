@@ -6,29 +6,6 @@ $(document).ready(function () {
         mobile: false,
     }).init();
 
-    $(".emdad-mega-menu li a").click(function () {
-        $(".emdad-mega-menu li > div").toggleClass("show-sub");
-    });
-
-    // 3 items carousel carousel-items-3
-    $(".carousel-items-3").owlCarousel({
-        margin: 20,
-        loop: true,
-        navText: ['<span class="emdad-iconarrow-left"></span>', '<span class="emdad-iconarrow-right"></span>'],
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 2
-            },
-            768: {
-                items: 3
-            }
-
-        }
-    });
-
     // 3 items carousel carousel-items-3
     $(".carousel-items-4").owlCarousel({
         margin: 20,
@@ -51,28 +28,6 @@ $(document).ready(function () {
     });
 
 
-    // START TOGGLE SEARCH
-    $(".open-search").click(function (e) {
-        e.preventDefault();
-        $(".search-section").fadeIn('fast');
-        $(".search-input").focus();
-        $('body').css({ "overflow": "hidden" });
-    });
-
-    $(".close-search").click(function (e) {
-        e.preventDefault();
-        $(".search-section").fadeOut('fast');
-        $('body').css({ "overflow": "visible" });
-    });
-
-    $(document).keyup(function (e) {
-        if (e.which == 27) {
-            $(".search-section").fadeOut('fast');
-            $('body').css({ "overflow": "visible" });
-        }
-
-    });
-
     // 3 items carousel carousel-items-6
     $(".carousel-items-6").owlCarousel({
         margin: 20,
@@ -90,86 +45,6 @@ $(document).ready(function () {
             }
         }
     });
-
-
-
-    // teaser slider
-    $(".blog-teaser,.default-carousel").owlCarousel({
-        loop: true,
-        autoplay: true,
-        dots: true,
-        nav: true,
-        navText: ['<span class="emdad-iconarrow-left"></span>', '<span class="emdad-iconarrow-right"></span>'],
-        items: 1
-    });
-
-    // Blog Slider
-
-    $(".nav-slider").owlCarousel({
-        nav: true,
-        loop: true,
-        autoplay: true,
-        margin: 20,
-        navText: ['<span class="emdad-iconarrow-left"></span>', '<span class="emdad-iconarrow-right"></span>'],
-        dots: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
-
-    $("#blog-slider").owlCarousel({
-        loop: true,
-        margin: 20,
-        nav: false,
-        navText: ['<span class="emdad-iconarrow-left"></span>', '<span class="emdad-iconarrow-next"></span>'],
-        autoplay: true,
-        dots: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            600: {
-                items: 3
-            },
-            1000: {
-                items: 4
-            }
-        }
-    });
-
-    var $input = $("#input-val");
-    $input.val(1);
-    $(".calc-btn").click(function () {
-        if ($(this).hasClass("plus")) {
-            $input.val(parseInt($input.val()) + 1);
-        } else if ($input.val() >= 2) {
-            $input.val(parseInt($input.val()) - 1);
-        }
-    });
-
-    $(".emdad-view-btn").click(function () {
-        $(this).addClass('active').siblings().removeClass('active');
-
-        if ($(this).hasClass("emdad-list-btn")) {
-            $(".emdad-product-block").removeClass("col-md-6 col-lg-4").addClass("list");
-            $(".emdad-product-img").removeClass("col-12").addClass("col-4");
-            $(".emdad-product-block .card-body").removeClass("col-12").addClass("col-8");
-        }
-        else {
-            $(".emdad-product-block").addClass("col-md-6 col-lg-4").removeClass("list");
-            $(".emdad-product-img").removeClass("col-4").addClass("col-12");
-            $(".emdad-product-block .card-body").removeClass("col-8").addClass("col-12");
-        }
-    });
-
 
     $('[data-countdown]').each(function () {
         var $this = $(this), finalDate = $(this).data('countdown');
@@ -325,24 +200,6 @@ $(document).ready(function () {
 
 });
 
-function JaMap() {
-    var mapCanvas = document.getElementById("map");
-
-    data = mapCanvas.dataset;
-    var Zom = data.zom;
-    var myCenter = new google.maps.LatLng(data.lat, data.lng);
-    var mapOptions = {
-        center: myCenter,
-        zoom: 14,
-    };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-    var marker = new google.maps.Marker({
-        position: myCenter,
-        icon: data.icon
-    });
-    marker.setMap(map);
-}
-
 
 $(function ($) {
     "use strict";
@@ -356,5 +213,3 @@ function animatecounters() {
         $this.countTo(options);
     }
 }
-
-

@@ -275,9 +275,9 @@
 .emdad-contact-block {
      padding: 0 25px;
 } 
-.emdad-contact-icons {
+/* .emdad-contact-icons {
     padding: 40px 0;
-}
+} */
 .index-traingle::before { 
     border-bottom: 100vh solid #ffffffbf;
     border-left:  100.5vw solid transparent; 
@@ -798,14 +798,14 @@
 .emdad-vision-overlay { 
     padding: 20px; 
 }
-.emdad-contact-icons {
+/* .emdad-contact-icons {
     padding: 25px 15px;
-}
+} */
 
-.emdad-contact-caption {
+/* .emdad-contact-caption {
     padding: 30px 0; 
     margin-top: 25px;
-} 
+}  */
 .emdad-contact-circle-icon { 
     margin-top: 25px;
 }

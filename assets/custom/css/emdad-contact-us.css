@@ -2,10 +2,10 @@
 .emdad-contact-form {
     margin-bottom: 25px;
 }
-#map {
+/* #map {
  width: 100%;
  height: 420px;
- }
+ } */
 .emdad-contact-social-links{
     justify-content: center;
 }
@@ -18,9 +18,9 @@
 .emdad-contact-icon { 
     margin-top: -25px; 
 }
-.emdad-contact-caption { 
+/* .emdad-contact-caption { 
     background-image: url(../images/contact-caption-back.jpg); 
-}
+} */
 .emdad-rounded-btn:hover {
     color: #fff;
 }
