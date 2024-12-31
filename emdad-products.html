@@ -52,6 +52,229 @@
 
     <link rel="stylesheet" href="assets/custom/css/emdad-products.css">
 </head>
+<style>
+            :root {
+            --primary-color: #2C3E4F;
+            --secondary-color: #ecbd7b;
+            --hover-color: rgba(236, 189, 123, 0.1);
+            /* Hover color for cards */
+            --card-border-color: #ddd;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+        }
+
+        /* General page styles */
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h5 {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Filter Section */
+        .filter-container {
+            /* background-color: var(--primary-color); */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            color: var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .filter-container h5 {
+            margin-bottom: 20px;
+        }
+
+        .filter-section label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .filter-section select,
+        .filter-section input {
+            background-color: #34495e;
+            border-color: #34495e;
+            color: white;
+        }
+
+        .filter-section input:focus,
+        .filter-section select:focus {
+            background-color: var(--primary-color);
+            border-color: var(--secondary-color);
+        }
+
+        #priceRange {
+            background: linear-gradient(to right, #34495e, var(--secondary-color));
+        }
+
+        /* Product Cards */
+        .product-card {
+            margin-bottom: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translate(-2 px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            /* border: 1px solid var(--secondary-color); */
+            /* background-color: var(--hover-color); */
+        }
+
+        .product-card .card {
+            border: 1px solid var(--card-border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .card {
+            transform: scale(1.02);
+        }
+
+        .product-card .card-body {
+            padding: 20px;
+            background-color: white;
+            height: 250px;
+            /* Keep card height consistent */
+        }
+
+        .product-card .card-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-card .card-text {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .product-card .card-text strong {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        /* Price Range Label */
+        #priceRangeLabel {
+            font-weight: bold;
+        }
+
+        /* Customize range slider */
+        .form-range {
+            padding: 5px;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 576px) {
+            .product-card {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 577px) and (max-width: 992px) {
+            .product-card {
+                flex: 0 0 48%;
+                max-width: 48%;
+            }
+        }
+
+        @media (min-width: 993px) {
+            .product-card {
+                flex: 0 0 30%;
+                max-width: 30%;
+            }
+        }
+
+        /* Spacing for content */
+        .mt-5 {
+            margin-top: 5rem !important;
+        }
+
+        .form-range {
+            padding: 5px;
+            width: 100%;
+        }
+
+        /* Change color of the slider thumb (indicator) */
+        .form-range::-webkit-slider-thumb {
+            background-color: var(--primary-color);
+            /* Primary color for thumb */
+            border: 2px solid #fff;
+            /* Optional: Add white border around the thumb */
+            border-radius: 50%;
+            /* Optional: Make thumb round */
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-range::-moz-range-thumb {
+            background-color: var(--primary-color);
+            /* Primary color for thumb */
+            border: 2px solid #fff;
+            /* Optional: Add white border around the thumb */
+            border-radius: 50%;
+            /* Optional: Make thumb round */
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Customize the slider track color */
+        .form-range::-webkit-slider-runnable-track {
+            /* background: linear-gradient(to right, #34495e, var(--secondary-color)); */
+            height: 8px;
+        }
+
+        .form-range::-moz-range-track {
+            /* background: linear-gradient(to right, #34495e, var(--secondary-color)); */
+            height: 8px;
+        }
+
+        /* Optional: Hover effect on the slider thumb */
+        .form-range::-webkit-slider-thumb:hover {
+            background-color: darken(var(--primary-color), 10%);
+        }
+
+        .form-range::-moz-range-thumb:hover {
+            background-color: darken(var(--primary-color), 10%);
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .star {
+            font-size: 24px;
+            /* color: transparent; */
+            /* border: 2px solid yellow; */
+            outline: #2C3E4F;
+            cursor: pointer;
+            padding: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .star:hover {
+            /* background-color: rgba(255, 255, 0, 0.3); */
+        }
+
+        .star.selected {
+            /* background-color: yellow; */
+            color: yellow;
+        }
+</style>
 
 <body>
 
@@ -161,6 +384,22 @@
                                         enthusiasts.
                                     </p>
                                     <p class="card-text pricing"><strong>$99.99</strong></p>
+                                         <!-- Star Rating -->
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -175,6 +414,22 @@
                                     <h5 class="card-title product-name">Product 2</h5>
                                     <p class="card-text product-description">Comfortable and stylish clothing.</p>
                                     <p class="card-text pricing"><strong>$49.99</strong></p>
+                                         <!-- Star Rating -->
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -190,6 +445,22 @@
                                     <p class="card-text product-description">Stylish and modern furniture for your home.
                                     </p>
                                     <p class="card-text pricing"><strong>$199.99</strong></p>
+                                         <!-- Star Rating -->
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -205,6 +476,22 @@
                                     <p class="card-text product-description">Latest smartphone with amazing features.
                                     </p>
                                     <p class="card-text pricing"><strong>$799.99</strong></p>
+                                         <!-- Star Rating -->
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -219,6 +506,22 @@
                                     <h5 class="card-title product-name">Product 5</h5>
                                     <p class="card-text product-description">Trendy and fashionable clothing item.</p>
                                     <p class="card-text pricing"><strong>$39.99</strong></p>
+                                         <!-- Star Rating -->
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div>
+
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div> -->
                                 </div>
                             </div>
                         </div>
@@ -233,6 +536,22 @@
                                     <h5 class="card-title product-name">Product 6</h5>
                                     <p class="card-text product-description">Comfortable sofa for your living room.</p>
                                     <p class="card-text pricing"><strong>$599.99</strong></p>
+                                         <!-- Star Rating -->
+                                <!-- <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1">★</span>
+                                    <span class="star" data-value="2">★</span>
+                                    <span class="star" data-value="3">★</span>
+                                    <span class="star" data-value="4">★</span>
+                                    <span class="star" data-value="5">★</span>
+                                </div> -->
+
+                                <div class="star-rating" data-product-id="1">
+                                    <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                                    <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -306,6 +625,62 @@
     </div>
 
 
+    <script>
+        // Function to update the price label
+        document.getElementById('priceRange').addEventListener('input', function () {
+            document.getElementById('priceRangeLabel').textContent = this.value;
+        });
+
+        // Function to filter products by search, category, and price
+        function filterProducts() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const selectedCategory = document.getElementById('categoryFilter').value;
+            const maxPrice = parseFloat(document.getElementById('priceRange').value);
+            const productCards = document.querySelectorAll('.product-card');
+
+            productCards.forEach(card => {
+                const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                const productCategory = card.getAttribute('data-category');
+                const productPrice = parseFloat(card.getAttribute('data-price'));
+
+                // Show or hide card based on filter conditions
+                if (
+                    (productName.includes(searchInput)) &&
+                    (selectedCategory === "" || productCategory === selectedCategory) &&
+                    (productPrice <= maxPrice)
+                ) {
+                    card.style.display = 'block';  // Show the product
+                } else {
+                    card.style.display = 'none';  // Hide the product
+                }
+            });
+        }
+
+        //////////////////////////////////////////////////////////////
+
+        // Function to handle star rating selection
+        function handleStarRating(event) {
+            const stars = event.target.closest('.star-rating').querySelectorAll('.star');
+            const ratingValue = event.target.getAttribute('data-value');
+            const productId = event.target.closest('.star-rating').getAttribute('data-product-id');
+
+            stars.forEach((star) => {
+                if (parseInt(star.getAttribute('data-value')) <= parseInt(ratingValue)) {
+                    star.classList.add('selected');
+                } else {
+                    star.classList.remove('selected');
+                }
+            });
+
+            console.log(`Product ${productId} rated ${ratingValue} star(s)`);
+        }
+
+        // Add event listeners to all stars
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', handleStarRating);
+        });
+
+    </script>
 
 
     <script src="assets/custom/js/controll-product.js"></script>
