@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emdad Products</title>
+    <!-- animate.css-->
+    <link href="assets/vendor/animate.css-master/animate.min.css" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="assets/vendor/loadscreen/css/spinkit.css" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+        rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="assets/vendor/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap-4-navbar.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css" rel="stylesheet">
+    <!-- FANCY BOX -->
+    <link href="assets/vendor/fancybox-master/jquery.fancybox.min.css" rel="stylesheet">
+    <!-- RANGE SLIDER -->
+    <link href="assets/vendor/range-slider/range-slider.css" rel="stylesheet">
+    <!-- OWL CAROUSEL  -->
+    <link href="assets/vendor/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/vendor/owlcarousel/owl.theme.default.min.css" rel="stylesheet">
+    <!-- emdad CUSTOM CSS FILE -->
+    <link href="assets/custom/css/custom.css" rel="stylesheet">
+    <!-- emdad GOLBAL STYLE CSS FILE -->
+    <link href="assets/custom/css/emdad-global-styles.css" rel="stylesheet">
+    <!-- emdad CUSTOM CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/custom-responsive.css" rel="stylesheet">
+    <!-- emdad COLOR CSS FILE -->
+    <link href="assets/custom/css/emdad-colors.css" rel="stylesheet">
+    <!-- emdad SIGNIN CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/custom-responsive.css" rel="stylesheet">
+    <!-- emdad ABOUT CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/emdad-about.css" rel="stylesheet">
+    <!-- emdad Menu CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/emdad-mega-menu.css" rel="stylesheet">
+    <!-- emdad FOOTER CSS RESPONSIVE FILE -->
+    <link href="assets/custom/css/emdad-footer.css" rel="stylesheet">
+    <!-- NEW CHANGE THAT I WANT -->
+    <link href="assets/custom/css/new-style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/custom/css/emdad-products.css">
+</head>
+
+<body>
+    <div class="container bg-products mt-5 wow zoomInRight">
+        <div class="row">
+            <!-- Filter Section -->
+            <div class="col-md-3">
+                <div class="filter-container">
+                    <!-- Search Bar -->
+                    <div class="mb-3">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search for a product..."
+                            onkeyup="filterProducts()">
+                    </div>
+
+                    <!-- Filter by Category -->
+                    <div class="mb-3">
+                        <select class="form-select" id="categoryFilter" onchange="filterProducts()">
+                            <option value="">Filter by Category</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="furniture">Furniture</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Range Slider -->
+                    <div class="mb-3">
+                        <label for="priceRange">Filter by Price: $<span id="priceRangeLabel">0</span> - $<span
+                                id="priceRangeMax">1000</span></label>
+                        <input type="range" id="priceRange" class="form-range" min="0" max="1000" step="10" value="1000"
+                            onchange="filterProducts()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div class="col-md-9">
+                <div class="row" id="productList">
+                    <!-- Product 1 -->
+                    <div class="col-md-4 product-card" data-category="electronics" data-price="99.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 1">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 1</h5>
+                                <p class="card-text product-description">This is a great product for tech enthusiasts.
+                                </p>
+                                <p class="card-text pricing"><strong>$99.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="col-md-4 product-card" data-category="clothing" data-price="49.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 2">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 2</h5>
+                                <p class="card-text product-description">Comfortable and stylish clothing.</p>
+                                <p class="card-text pricing"><strong>$49.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="col-md-4 product-card" data-category="furniture" data-price="199.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 3">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 3</h5>
+                                <p class="card-text product-description">Stylish and modern furniture for your home.</p>
+                                <p class="card-text pricing"><strong>$199.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="col-md-4 product-card" data-category="electronics" data-price="799.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 4">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 4</h5>
+                                <p class="card-text product-description">Latest smartphone with amazing features.</p>
+                                <p class="card-text pricing"><strong>$799.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="col-md-4 product-card" data-category="clothing" data-price="39.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 5">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 5</h5>
+                                <p class="card-text product-description">Trendy and fashionable clothing item.</p>
+                                <p class="card-text pricing"><strong>$39.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="col-md-4 product-card" data-category="furniture" data-price="599.99">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Product 6">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title product-name">Product 6</h5>
+                                <p class="card-text product-description">Comfortable sofa for your living room.</p>
+                                <p class="card-text pricing"><strong>$599.99</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="assets/custom/js/controll-product.js"></script>
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <script src="assets/vendor/loadscreen/js/ju-loading-screen.js"></script>
+    <script src="assets/custom/js/custom.js"></script>
+    <script src="assets/vendor/WOW-master/dist/wow.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+
+
+    <script src="assets/vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="assets/custom/js/jquery-data-to.js"></script>
+    <script src="assets/vendor/jquery-circle-progress/circle.js"></script>
+    <script src="assets/vendor/portfolio-filter-gallery/jquery.isotope.min.js"></script>
+    <script src="assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.js"></script>
+    <script src="assets/vendor/fancybox-master/jquery.fancybox.min.js"></script>
+    <script src="assets/vendor/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="assets/vendor/popper/popper.min.js"></script>
+    <script src="assets/vendor/jQuery.countdown-master/jquery.countdown.min.js"></script>
+    <script src="assets/vendor/timeline/jquery.timelify.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap-4-navbar.js"></script>
+
+</body>
+
+</html>
