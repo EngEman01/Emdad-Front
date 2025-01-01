@@ -3,7 +3,7 @@ $(document).ready(function () {
     "use strict";
     // wow 
     new WOW({
-        mobile: false,
+        // mobile: false,
     }).init();
 
     // 3 items carousel carousel-items-3
