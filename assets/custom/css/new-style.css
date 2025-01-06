@@ -5,7 +5,11 @@
 }
 
 .allPage{
-    min-height: 80vh;
+    min-height: 100vh;
+}
+
+.bg-products{
+    background:linear-gradient(#022d52d3, #fff),url("../IMAGE/bg-products.jpg") ;
 }
 
 .rtlSection{

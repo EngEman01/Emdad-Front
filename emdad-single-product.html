@@ -167,6 +167,36 @@
         </div>
     </div>
 
+
+    <div class="container mt-5">
+        <h2 class="text-center">Translation Management</h2>
+        
+        <!-- Categories Table -->
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>language</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <td>${index + 1}</td>
+            <td>${translation.name}</td>
+            <td>${translation.description}</td>
+            <td>${translation.language}</td>
+            <td>
+              <a class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+              <a class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+              <a class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+            </td>
+          </tbody>
+        </table>
+      </div>
+    
+
     <!-- Start Footer 2 Background Image  -->
     <div class="emdad-footer-image emdad-after-overlay white-color py-4 py-lg-5 rtlSection ">
         <div class="container">

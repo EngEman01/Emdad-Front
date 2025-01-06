@@ -29,6 +29,7 @@ $(document).ready(function () {
         }
     });
 
+
     // 3 items carousel carousel-items-3
     $(".carousel-items-4").owlCarousel({
         margin: 20,
@@ -52,26 +53,26 @@ $(document).ready(function () {
 
 
     // START TOGGLE SEARCH
-    $(".open-search").click(function (e) {
-        e.preventDefault();
-        $(".search-section").fadeIn('fast');
-        $(".search-input").focus();
-        $('body').css({ "overflow": "hidden" });
-    });
+    // $(".open-search").click(function (e) {
+    //     e.preventDefault();
+    //     $(".search-section").fadeIn('fast');
+    //     $(".search-input").focus();
+    //     $('body').css({ "overflow": "hidden" });
+    // });
 
-    $(".close-search").click(function (e) {
-        e.preventDefault();
-        $(".search-section").fadeOut('fast');
-        $('body').css({ "overflow": "visible" });
-    });
+    // $(".close-search").click(function (e) {
+    //     e.preventDefault();
+    //     $(".search-section").fadeOut('fast');
+    //     $('body').css({ "overflow": "visible" });
+    // });
 
-    $(document).keyup(function (e) {
-        if (e.which == 27) {
-            $(".search-section").fadeOut('fast');
-            $('body').css({ "overflow": "visible" });
-        }
+    // $(document).keyup(function (e) {
+    //     if (e.which == 27) {
+    //         $(".search-section").fadeOut('fast');
+    //         $('body').css({ "overflow": "visible" });
+    //     }
 
-    });
+    // });
 
     // 3 items carousel carousel-items-6
     $(".carousel-items-6").owlCarousel({
@@ -325,23 +326,23 @@ $(document).ready(function () {
 
 });
 
-function JaMap() {
-    var mapCanvas = document.getElementById("map");
+// function JaMap() {
+//     var mapCanvas = document.getElementById("map");
 
-    data = mapCanvas.dataset;
-    var Zom = data.zom;
-    var myCenter = new google.maps.LatLng(data.lat, data.lng);
-    var mapOptions = {
-        center: myCenter,
-        zoom: 14,
-    };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
-    var marker = new google.maps.Marker({
-        position: myCenter,
-        icon: data.icon
-    });
-    marker.setMap(map);
-}
+//     data = mapCanvas.dataset;
+//     var Zom = data.zom;
+//     var myCenter = new google.maps.LatLng(data.lat, data.lng);
+//     var mapOptions = {
+//         center: myCenter,
+//         zoom: 14,
+//     };
+//     var map = new google.maps.Map(mapCanvas, mapOptions);
+//     var marker = new google.maps.Marker({
+//         position: myCenter,
+//         icon: data.icon
+//     });
+//     marker.setMap(map);
+// }
 
 
 $(function ($) {

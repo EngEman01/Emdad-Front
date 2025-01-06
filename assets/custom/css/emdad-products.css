@@ -3,7 +3,6 @@
     --primary-color: #2C3E4F;
     --secondary-color: #ecbd7b;
     --hover-color: rgba(236, 189, 123, 0.1);
-    /* Hover color for cards */
     --card-border-color: #ddd;
     --shadow-color: rgba(0, 0, 0, 0.15);
 }
@@ -23,7 +22,7 @@ h5 {
 
 /* Filter Section */
 .filter-container {
-    /* background-color: var(--primary-color); */
+    background-color: #ffffffb0;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -63,11 +62,13 @@ h5 {
     transition: all 0.3s ease-in-out;
 }
 
+.product-name{
+    color: #34495e;
+}
+
 .product-card:hover {
     transform: translate(-2 px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    /* border: 1px solid var(--secondary-color); */
-    /* background-color: var(--hover-color); */
 }
 
 .product-card .card {
@@ -85,7 +86,6 @@ h5 {
     padding: 20px;
     background-color: white;
     height: 250px;
-    /* Keep card height consistent */
 }
 
 .product-card .card-title {
