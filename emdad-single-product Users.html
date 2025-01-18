@@ -54,7 +54,40 @@
     <link href="assets/custom/css/emdad-footer.css" rel="stylesheet">
     <!-- NEW CHANGE THAT I WANT -->
     <link href="assets/custom/css/new-style.css" rel="stylesheet">
+    <style>
+        .thumbnail-img {
+            cursor: pointer;
+            transition: transform 0.3s;
+            max-width: 100%;
+            /* Ensure images do not overflow their container */
+        }
 
+        .thumbnail-img:hover {
+            transform: scale(1.05);
+            border: 2px solid #007bff;
+            /* Highlight border on hover */
+        }
+
+        #big-image {
+            border: 1px solid #ccc;
+            /* Optional border for the big image */
+            border-radius: 5px;
+            /* Rounded corners */
+            margin-bottom: 15px;
+            /* Spacing below the big image */
+            max-width: 100%;
+            /* Ensure big image is responsive */
+            height: auto;
+            /* Maintain aspect ratio */
+        }
+
+        @media (max-width: 576px) {
+            .font-23 {
+                font-size: 1.5rem;
+                /* Adjust font size for smaller screens */
+            }
+        }
+    </style>
 </head>
 
 
@@ -121,34 +154,21 @@
     </div>
 
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="row my-4 my-lg-5">
             <div class="col-12 col-lg-8 wow fadeInRight" data-wow-delay=".001s">
                 <img src="assets/custom/IMAGE/business1.jpg" alt="" class="img-fluid">
                 <h2 class="font-23 semi-font my-3"><a href="#"
-                        class="fables-main-text-color fables-second-hover-color">Getting to Another Level of Design</a>
+                        class="emdad-main-text-color emdad-second-hover-color">Getting to Another Level of Design</a>
                 </h2>
-                <div class="fables-forth-text-color fables-blog-date">
-                    <div class="row">
-                        <div class="col-12 col-sm-10 pt-2">
-                            <span class="fables-icondata fables-second-text-color mr-1"></span>
-                            <span class="mr-3"> 09 November, 2018 </span>
-                            <span class="fables-iconcomment fables-second-text-color mr-1"></span>
-                        </div>
-                    </div>
-                </div>
-                <p class="fables-forth-text-color fables-single-blog font-14 my-3 wow fadeIn">
+               
+                <p class="emdad-forth-text-color emdad-single-blog font-14 my-3 wow fadeIn">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas nisl vel faucibus.
                     Pellentesque ac dapibus orci. In aliquam nisi at est posuere ornare. Aliquam scelerisque magna a
                     turpis mollis, eu interdum enim commodo...
                 </p>
 
-                <!-- PDF download icon -->
-                <!-- <div class="pdf-download">
-                    <a href="assets/custom/files/English.pdf" download class="btn btn-primary">
-                        <i class="fas fa-file-pdf"></i> Download PDF
-                    </a>
-                </div> -->
+                
                 <div class="pdf-download">
                     <a href="assets/custom/files/English.pdf" target="_blank" class="btn btn-primary">
                         <i class="fas fa-file-pdf"></i> Open PDF
@@ -156,14 +176,95 @@
                 </div>
 
             </div>
-
+            <div class="col-lg-4 col-12 d-flex flex-column justify-content-between">
+                <div class="row">
+                    <div class="col-12 mb-2">
+                        <img src="/assets/custom/IMAGE/business1.jpg" alt="Image 1" class="thumbnail-img img-fluid"
+                            data-large-src="~/assets/custom/IMAGE/business1.jpg">
+                    </div>
+                    <div class="col-12 mb-2">
+                        <img src="/assets/custom/IMAGE/Management1.jpg" alt="Image 2"
+                            class="thumbnail-img img-fluid" data-large-src="~/assets/custom/IMAGE/Management1.jpg">
+                    </div>
+                    <div class="col-12 mb-2">
+                        <img src="/assets/custom/IMAGE/management4.jpg" alt="Image 3"
+                            class="thumbnail-img img-fluid" data-large-src="~/assets/custom/IMAGE/management4.jpg">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
 
+    <div class="container my-5">
+        <h3 class="font-23 semi-font mb-4" id="contact-header" style="cursor: pointer;">Contact Us to Purchase This
+            Product</h3>
+        <div class="row">
+            <div class="col-12 col-md-8" id="contact-form" style="display: none;">
+                <form action="your-server-endpoint" method="post">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" class="form-control" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+    <div class="container">
+        <div class="row my-4 my-lg-5 align-items-stretch"> <!-- Added align-items-stretch -->
+            <div class="col-12 col-lg-8 wow fadeInRight" data-wow-delay=".001s">
+                <img id="big-image" src="assets/custom/IMAGE/business1.jpg" alt="Big Image" class="img-fluid">
+                <h2 class="font-23 semi-font my-3">
+                    <a href="#" class="emdad-main-text-color emdad-second-hover-color">Getting to Another Level of Design</a>
+                </h2>
+    
+                <p class="emdad-forth-text-color emdad-single-blog font-14 my-3 wow fadeIn">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis egestas nisl vel faucibus.
+                    Pellentesque ac dapibus orci. In aliquam nisi at est posuere ornare. Aliquam scelerisque magna a
+                    turpis mollis, eu interdum enim commodo...
+                </p>
+    
+                <div class="pdf-download">
+                    <a href="assets/custom/files/English.pdf" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-file-pdf"></i> Open PDF
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Small images section with flex adjustment -->
+            <div class="col-12 col-lg-4 d-flex flex-column justify-content-between mt-3 mt-lg-0 wow fadeInLeft">
+                <div class="row flex-grow-1"> <!-- Added flex-grow-1 -->
+                    <div class="col-12 p-0 mb-0">
+                        <img src="assets/custom/IMAGE/business1.jpg" alt="Image 1" class="thumbnail-img img-fluid" data-large-src="assets/custom/IMAGE/business1.jpg" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-12 p-0 mb-0">
+                        <img src="assets/custom/IMAGE/Management1.jpg" alt="Image 2" class="thumbnail-img img-fluid" data-large-src="assets/custom/IMAGE/Management1.jpg" style="height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="col-12 p-0 mb-0">
+                        <img src="assets/custom/IMAGE/management4.jpg" alt="Image 3" class="thumbnail-img img-fluid" data-large-src="assets/custom/IMAGE/management4.jpg" style="height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
     <div class="container my-5">
-        <h3 class="font-23 semi-font mb-4" id="contact-header" style="cursor: pointer;">Contact Us to Purchase This Product</h3>
+        <h3 class="font-23 semi-font mb-4" id="contact-header" style="cursor: pointer;">Contact Us to Purchase This
+            Product</h3>
         <div class="row">
             <div class="col-12 col-md-8" id="contact-form" style="display: none;">
                 <form action="your-server-endpoint" method="post">
@@ -184,6 +285,7 @@
             </div>
         </div>
     </div>
+
 
 
 
@@ -264,9 +366,25 @@
         </ul>
 
     </div>
-
     <script>
-        document.getElementById("contact-header").addEventListener("click", function() {
+        document.getElementById("contact-header").addEventListener("click", function () {
+            var form = document.getElementById("contact-form");
+            form.style.display = (form.style.display === "none" || form.style.display === "") ? "block" : "none";
+        });
+
+        // Change big image when small images are clicked
+        const thumbnails = document.querySelectorAll('.thumbnail-img');
+        const bigImage = document.getElementById('big-image');
+
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function () {
+                const largeSrc = this.getAttribute('data-large-src');
+                bigImage.src = largeSrc;
+            });
+        });
+    </script>
+    <!-- <script>
+        document.getElementById("contact-header").addEventListener("click", function () {
             var form = document.getElementById("contact-form");
             if (form.style.display === "none" || form.style.display === "") {
                 form.style.display = "block";
@@ -274,7 +392,7 @@
                 form.style.display = "none";
             }
         });
-    </script>
+    </script> -->
 
     <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="assets/vendor/loadscreen/js/ju-loading-screen.js"></script>
@@ -289,7 +407,19 @@
     <script src="assets/custom/js/jquery-data-to.js"></script>
     <script src="assets/vendor/jquery-circle-progress/circle.js"></script>
     <script src="assets/custom/js/custom.js"></script>
+    <!-- <script>
+        // Attach event listeners to each thumbnail image
+        document.querySelectorAll('.thumbnail-img').forEach(item => {
+            item.addEventListener('click', function () {
+                // Get the source of the clicked image
+                const largeImage = document.getElementById('largeImage');
+                const newSrc = item.getAttribute('data-large-src');
 
+                // Change the src of the large image to the new source
+                largeImage.src = newSrc;
+            });
+        });
+    </script> -->
 </body>
 
 </html>

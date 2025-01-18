@@ -350,6 +350,9 @@
 .team-name {
     font-size: 15px;
 }
+/* .emdad-team-block {
+    height:50px; 
+} */
 .emdad-team-block .card-body{
     padding: .6rem;
 }
